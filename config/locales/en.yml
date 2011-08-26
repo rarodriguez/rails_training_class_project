@@ -1,0 +1,12 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  models:
+    session:
+      invalid_credentials: "You did not provide enough details for authentication."
+  views:
+    employees:
+      list:
+        title: "Listing all the Employees"
+      

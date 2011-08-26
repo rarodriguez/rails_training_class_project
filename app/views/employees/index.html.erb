@@ -1,0 +1,31 @@
+<% content_for :header do%>
+<style> 
+  .list {width:600px;}
+</style>
+<% end %>
+
+<h1><%= I18n.t 'views.employees.list.title'%></h1>
+
+<table class="list">
+  <tr>
+    <th>Full Name</th>
+    <th>Email</th>
+    <th>Began Working At GAP at</th>
+    <th>Last Login At</th>
+    <th></th>
+	<th></th>
+    <th></th>
+  </tr>
+
+<% @employees.each do |employee| %>
+  <tr style="background-color:<%= cycle('Gray', 'White') %>">
+    <td><%= employee.full_name %></td>
+    <td><%= employee.email %></td>
+	<td><%= employee.began_working_at_gap_at %></td>
+    <td><%= employee.last_login_at %></td>
+    <td><%# link_to 'Show', [:admin, expert] %></td>
+    <td><%# link_to 'Edit', edit_admin_expert_path(expert) %></td>
+    <td><%# link_to 'Destroy', [:admin, expert], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
