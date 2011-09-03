@@ -6,5 +6,8 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-Employee.create([{:full_name=>'Panchito Carrasco',:email => 'admin@gap.com', :password => '123Admin', :password_confirmation => '123Admin', :began_working_at_gap_at=>Date.today}])
-Employee.create([{:full_name=>'Fulano Perez',:email => 'empleado@gap.com', :password => '123Empleado', :password_confirmation => '123Empleado', :began_working_at_gap_at=>Date.today}])
+employee1 = Employee.create([{:full_name=>'Panchito Carrasco',:email => 'admin@gap.com', :password => '123Admin', :password_confirmation => '123Admin', :began_working_at_gap_at=>Date.today}])
+employee1.permissions << Permission.create({:name=>'user_admin',:permission_level => 1, :module_name => 'EMPLOYEES'})
+
+employee2 = Employee.create([{:full_name=>'Fulano Perez',:email => 'empleado@gap.com', :password => '123Empleado', :password_confirmation => '123Empleado', :began_working_at_gap_at=>Date.today}])
+employee2.permissions << Permission.create({:name=>'user_leader',:permission_level => 2, :module_name => 'VACATIONS'})

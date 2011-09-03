@@ -9,7 +9,7 @@
   <%= yield :header %>
 </head>
 <body>
-
+<%= "Hello, #{@current_employee.full_name}" if @current_employee %>
 <%= yield %>
 
 </body>

@@ -4,7 +4,7 @@
 </style>
 <% end %>
 
-<h1><%= I18n.t 'views.employees.list.title'%></h1>
+<h1><%= sanitize I18n.t('views.employees.list.title')%></h1>
 
 <table class="list">
   <tr>

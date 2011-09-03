@@ -8,5 +8,5 @@ en:
   views:
     employees:
       list:
-        title: "Listing all the Employees"
+        title: "<span style='color:red'>Listing all the Employees</span>"
       

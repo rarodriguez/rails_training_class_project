@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110823234155) do
+ActiveRecord::Schema.define(:version => 20110901224445) do
 
   create_table "employees", :force => true do |t|
     t.string   "full_name",                              :null => false
@@ -33,5 +33,24 @@ ActiveRecord::Schema.define(:version => 20110823234155) do
 
   add_index "employees", ["email"], :name => "index_employees_on_email", :unique => true
   add_index "employees", ["persistence_token"], :name => "index_employees_on_persistence_token", :unique => true
+
+  create_table "employees_permissions", :id => false, :force => true do |t|
+    t.integer "permission_id", :null => false
+    t.integer "employee_id",   :null => false
+  end
+
+  add_index "employees_permissions", ["employee_id"], :name => "index_employees_permissions_on_employee_id"
+  add_index "employees_permissions", ["permission_id", "employee_id"], :name => "index_employees_permissions_on_both_keys", :unique => true
+  add_index "employees_permissions", ["permission_id"], :name => "index_employees_permissions_on_permission_id"
+
+  create_table "permissions", :force => true do |t|
+    t.string   "name",             :null => false
+    t.string   "module_name"
+    t.integer  "permission_level"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "permissions", ["module_name"], :name => "index_permissions_on_module_name"
 
 end

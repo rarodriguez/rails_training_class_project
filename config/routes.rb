@@ -1,5 +1,9 @@
 CompanyManagement::Application.routes.draw do
-  match 'employees' => 'employees#index', :as => :list_employees, :via=>:get
+  match 'employees' => 'employees#index', :as => :list_employees,   :via=>:get
+  match 'login'     => 'login#login',     :as => :employee_session, :via=>:get
+  match 'login'     => 'login#validate_user', :as => :submit_employee_session, :via=>:post
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
